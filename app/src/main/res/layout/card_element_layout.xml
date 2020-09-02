@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:background="#EFF2F7"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        card_view:cardElevation="5dp"
+        card_view:cardCornerRadius="2.5dp"
+        card_view:cardUseCompatPadding="true"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:background="#EFF2F7"
+        android:padding="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/card_account_number"
+                    style="@style/smallTextBlack"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    tools:text="Conto 00000000000001" />
+
+                <TextView
+                    android:id="@+id/card_holder"
+                    style="@style/smallTextBlack"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    tools:text="Matteo Tagliafico" />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/card_balance"
+                style="@style/bigTextBlackBold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingStart="5dp"
+                android:layout_centerVertical="true"
+                android:paddingEnd="5dp"
+                tools:text="15.000€" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/lightGrey"
+                android:layout_above="@id/card_iban"/>
+
+            <TextView
+                android:id="@+id/card_iban"
+                style="@style/smallTextBlack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:textColor="@color/darkGrey"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="10dp"
+                tools:text="IT 88 A 01234 56789 012345678901" />
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+</FrameLayout>

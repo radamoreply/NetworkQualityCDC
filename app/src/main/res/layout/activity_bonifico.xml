@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/login_margin_side"
+        android:layout_marginRight="@dimen/login_margin_side"
+        android:layout_marginTop="@dimen/login_margin_top"
+        android:text="@string/bonifico_title"
+        android:textSize="20sp" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/iban_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/iban"
+        android:layout_marginLeft="@dimen/login_margin_side"
+        android:layout_marginRight="@dimen/login_margin_side"
+        android:layout_marginTop="@dimen/login_margin_top"
+        />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/intestatario_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/intestatario"
+        android:layout_marginLeft="@dimen/login_margin_side"
+        android:layout_marginRight="@dimen/login_margin_side"
+        android:layout_marginTop="@dimen/login_margin_top"
+        />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/importo_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/importo"
+        android:layout_marginLeft="@dimen/login_margin_side"
+        android:layout_marginRight="@dimen/login_margin_side"
+        android:layout_marginTop="@dimen/login_margin_top"
+        />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/causale_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/causale"
+        android:layout_marginLeft="@dimen/login_margin_side"
+        android:layout_marginRight="@dimen/login_margin_side"
+        android:layout_marginTop="@dimen/login_margin_top"
+        />
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/istantaneo_cb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checked="false"
+        android:text="@string/istantaneo"
+        android:layout_marginLeft="@dimen/login_margin_side"
+        android:layout_marginRight="@dimen/login_margin_side"
+        android:layout_marginTop="@dimen/login_margin_top"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/confirm_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text = "@string/conferma"
+        android:paddingLeft="@dimen/login_padding_side"
+        android:paddingRight="@dimen/login_padding_side"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/login_margin_top"
+
+        />
+
+</LinearLayout>

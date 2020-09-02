@@ -1,0 +1,57 @@
+package com.example.android.networkqualitycdc.myapplication
+
+import android.os.Build
+import android.os.Bundle
+import android.view.MenuItem
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import androidx.viewpager.widget.ViewPager
+import com.example.android.networkqualitycdc.myapplication.BonificoActivity
+import com.example.android.networkqualitycdc.myapplication.R
+import com.example.android.networkqualitycdc.utils.Card
+import com.example.android.networkqualitycdc.utils.CardsAdapter
+import services.BankRepositoryDefault
+
+
+
+class MainActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        val bankRepository = BankRepositoryDefault(this)
+
+        val list =  ArrayList<Card>()
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            list.add(bankRepository.getCardInformation(1))
+            list.add(bankRepository.getCardInformation(2))
+            list.add(bankRepository.getCardInformation(3))
+            list.add(bankRepository.getCardInformation(4))
+
+        }
+
+        val cardAdapter = CardsAdapter(list,this)
+        val viewPager = findViewById<ViewPager>(R.id.card_view_pager)
+
+        findViewById<View>(R.id.bonifico_button).setOnClickListener {
+            startActivity(BonificoActivity.openBonificoIntent(this))
+        }
+
+        supportActionBar?.title = "Home page"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+
+
+        viewPager.adapter = cardAdapter
+
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        if (item?.itemId == android.R.id.home) {
+            finish()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+}

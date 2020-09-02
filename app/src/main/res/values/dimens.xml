@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="login_margin_top">25dp</dimen>
+    <dimen name="login_margin_side">30dp</dimen>
+    <dimen name="login_padding_side">10dp</dimen>
+</resources>

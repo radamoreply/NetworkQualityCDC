@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="espresso_description">"Released in Oct. 2013, Espresso is the official GUI testing framework for Android.It is intended to test a single application but can also be used to test across applications.          Write below a review of this framework!"</string>
+    <string name="kakao_description">Released in Sept. 2017, Kakao is an DSL testing language developed from Espresso. With a more clear syntaxt and easier commands, it fully supports Kotlin.          As the same for Espresso, write here below a lovely review for Kakao!</string>
+    <string name="bonifico_title">Bonifico</string>
+    <string name="iban">IBAN</string>
+    <string name="intestatario">INTESTATARIO</string>
+    <string name="importo">IMPORTO</string>
+    <string name="causale">CAUSALE</string>
+    <string name="istantaneo">Bonifico Istantaneo</string>
+    <string name="conferma">CONFERMA</string>
+    <string name="label_empty_text">Non hai inserito i campi obbligatori</string>
+    <string name="label_wrong_text">Non hai inserito i valori corretti. Riprova.</string>
+    <string name="bonifico_mandatory_fields">Non hai compilato i campi obbligatori.</string>
+    <string name="bonifico_instant_completed">Bonifico istantaneo completato</string>
+    <string name="bonifico_completed">Bonifico completato</string>
+    <string name="good_speed">GOOD SPEED</string>
+    <string name="poor_speed">POOR SPEED</string>
+    <string name="medium_speed">MEDIUM SPEED</string>
+
+
+</resources>
