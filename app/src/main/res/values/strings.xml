@@ -17,6 +17,9 @@
     <string name="good_speed">GOOD SPEED</string>
     <string name="poor_speed">POOR SPEED</string>
     <string name="medium_speed">MEDIUM SPEED</string>
+    <string name="android_check_connection">Android Check Connection Speed</string>
+    <string name="download_speed_test">Download Speed Test</string>
+    <string name="facebook_network_connectivity_class">FACEBOOK NETWORK CONNECTION CLASS</string>
 
 
 </resources>

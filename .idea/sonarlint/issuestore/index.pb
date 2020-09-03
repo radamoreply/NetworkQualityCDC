@@ -39,3 +39,5 @@ Yapp/src/main/java/com/example/android/networkqualitycdc/services/BankRepository
 -app/src/main/assets/mockFiles/get-card-1.json,1\6\161bd7643efa274448ec858d10e5d453658c7e0b
 ]
 -app/src/main/assets/mockFiles/get-card-2.json,9\0\90c3d182f1f3aeb645051f64087f3d4c2ccf591f
+ù
+mapp/src/main/java/com/example/android/networkqualitycdc/connectionSpeedClasses/AndroidCheckConnectionSpeed.kt,1\c\1cb2cb85bf2da7660b2201df1af1157dfa891d2a
