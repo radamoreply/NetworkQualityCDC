@@ -1,5 +1,6 @@
 package com.example.android.networkqualitycdc.connectionSpeedClasses;
 
+import android.os.AsyncTask;
 import android.util.Log;
 
 import com.example.android.networkqualitycdc.myapplication.ChooseConnectivityCheckActivity;
@@ -17,6 +18,7 @@ import okhttp3.Response;
 
 public class DownloadSpeedCheckJava {
 
+    private MyEventListener callback;
     private static final String TAG = "DOWNLOAD_SPEED_CHECK";
     long startTime;
     long endTime;
@@ -29,9 +31,8 @@ public class DownloadSpeedCheckJava {
     private int AVERAGE_BANDWIDTH = 550;
     private int GOOD_BANDWIDTH = 2000;
 
-//TODO- rendere la chiamata bloccante, perchè va subito al return
-    public ChooseConnectivityCheckActivity.SPEED downloadSpeedCheck() {
-
+    public void downloadSpeedCheck(MyEventListener cb) {
+        callback = cb;
 
         OkHttpClient client = new OkHttpClient();
 
@@ -41,15 +42,18 @@ public class DownloadSpeedCheckJava {
 
         startTime = System.currentTimeMillis();
 
+
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 e.printStackTrace();
+                callback.onEventFailed();
             }
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
+                if (!response.isSuccessful())
+                    throw new IOException("Unexpected code " + response);
 
                 Headers responseHeaders = response.headers();
                 for (int i = 0, size = responseHeaders.size(); i < size; i++) {
@@ -68,6 +72,8 @@ public class DownloadSpeedCheckJava {
                     byte[] docBuffer = bos.toByteArray();
                     fileSize = bos.size();
 
+                } catch (Exception e) {
+                    Log.e(TAG, e.getMessage());
                 } finally {
                     input.close();
                 }
@@ -93,16 +99,20 @@ public class DownloadSpeedCheckJava {
                 Log.d(TAG, "Download Speed: " + speed);
                 Log.d(TAG, "File size: " + fileSize);
 
-
+                callback.onEventCompleted(downloadSpeedValue(kilobytePerSec));
             }
         });
 
+
+    }
+
+    private ChooseConnectivityCheckActivity.SPEED downloadSpeedValue(int kilobytePerSec) {
         if (kilobytePerSec <= POOR_BANDWIDTH) {
             return ChooseConnectivityCheckActivity.SPEED.POOR;
-        }else {
+        } else {
             return ChooseConnectivityCheckActivity.SPEED.EXCELLENT;
         }
+    }
 
-            }
 
 }
