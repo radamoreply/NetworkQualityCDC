@@ -44,13 +44,13 @@ class MainActivity : AppCompatActivity() {
                 list.add(bankRepository.getCardInformation(2))
                 list.add(bankRepository.getCardInformation(3))
                 list.add(bankRepository.getCardInformation(4))
-        }
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                list.add(bankRepository.getCardInformation(1))
-                list.add(bankRepository.getCardInformation(2))
-                list.add(bankRepository.getCardInformation(3))
-                list.add(bankRepository.getCardInformation(4))
-        }
+        }}else{
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                    list.add(bankRepository.getCardInformation(5))
+                    list.add(bankRepository.getCardInformation(6))
+                    list.add(bankRepository.getCardInformation(7))
+                    list.add(bankRepository.getCardInformation(8))
+                }
         }
 
         val cardAdapter = CardsAdapter(list,this)

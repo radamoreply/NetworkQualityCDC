@@ -27,7 +27,11 @@ class BankRepositoryDefault(context:Context):BankRepository{
             1 -> "mockFiles/get-card-1.json"
             2 -> "mockFiles/get-card-2.json"
             3 -> "mockFiles/get-card-3.json"
-            else -> "mockFiles/get-card-4.json"
+            4 -> "mockFiles/get-card-4.json"
+            5 -> "mockFiles/get-card-1-light.json"
+            6 -> "mockFiles/get-card-2-light.json"
+            7 -> "mockFiles/get-card-3-light.json"
+            else -> "mockFiles/get-card-4-light.json"
         }
 
         return ServiceUtil.loadJson(filePath,Card::class.java,assets,gson)
