@@ -2,8 +2,10 @@ package com.example.android.networkqualitycdc.connectionSpeedClasses
 
 import android.content.Context
 import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.net.NetworkInfo
 import android.net.wifi.WifiManager
+import android.os.Build
 import android.telephony.TelephonyManager
 import com.example.android.networkqualitycdc.myapplication.ChooseConnectivityCheckActivity
 
@@ -159,6 +161,20 @@ object AndroidCheckConnectionSpeed {
         } else {
             ChooseConnectivityCheckActivity.SPEED.NOT_AVAILABLE
         }
+    }
+
+    fun getNetworkData(context: Context): NetworkInfo? {
+        val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        var nc: NetworkCapabilities = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            cm.getNetworkCapabilities(cm.activeNetwork)
+
+        } else {
+            TODO("VERSION.SDK_INT < M")
+        }
+
+        nc.linkDownstreamBandwidthKbps
+
+        return cm.activeNetworkInfo
     }
 
     private fun networkQualityFromkbps(kilobitPerSec: Int): ChooseConnectivityCheckActivity.SPEED {
