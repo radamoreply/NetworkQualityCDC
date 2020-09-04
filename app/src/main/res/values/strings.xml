@@ -25,6 +25,7 @@
     <string name="qualita_connessione">Connection quality</string>
     <string name="unknown">UNKNOWN</string>
     <string name="banking_app">BANKING APP</string>
+    <string name="excellent_speed">EXCELLENT SPEED</string>
 
 
 </resources>

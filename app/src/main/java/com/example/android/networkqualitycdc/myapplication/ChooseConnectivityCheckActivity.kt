@@ -17,7 +17,6 @@ class ChooseConnectivityCheckActivity : AppCompatActivity() ,
     DownloadSpeedCheckEventListener {
 
 
-    private val KEY_CONNECTION_SPEED: String? = "KEY_CONNECTION_SPEED"
 
     /*metodi utili per facebook network connectivity */
     public var connectionQuality : SPEED = SPEED.NOT_AVAILABLE
@@ -38,7 +37,6 @@ class ChooseConnectivityCheckActivity : AppCompatActivity() ,
 
         android_check_connection.setOnClickListener {
             checkAndroidConnection()
-//            startActivity(createOpenIntent(this, AndroidCheckConnectionSpeed.connectionSpeed(this)))
         }
 
         download_speed_test.setOnClickListener {
@@ -47,20 +45,15 @@ class ChooseConnectivityCheckActivity : AppCompatActivity() ,
 
         facebook_network_connectivity_class.setOnClickListener {
             checkFacebookNetworkConnectivity()
-//            startActivity(createOpenIntent(this, connectionSpeed = checkFacebookNetworkConnectivity()))
         }
 
         goto_app.setOnClickListener {
-            startActivity(createOpenIntent(this, connectionQuality))
+            startActivity(LoginActivity.createOpenIntent(this, connectionQuality))
         }
 
     }
 
-    fun createOpenIntent(context: Context, connectionSpeed : SPEED): Intent {
-        val i = Intent(context, LoginActivity::class.java)
-        i.putExtra(KEY_CONNECTION_SPEED, connectionSpeed)
-        return i
-    }
+
 
 
     fun checkAndroidConnection() {
