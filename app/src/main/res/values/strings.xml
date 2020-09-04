@@ -20,6 +20,11 @@
     <string name="android_check_connection">Android Check Connection Speed</string>
     <string name="download_speed_test">Download Speed Test</string>
     <string name="facebook_network_connectivity_class">FACEBOOK NETWORK CONNECTION CLASS</string>
+    <string name="connesso">Connected</string>
+    <string name="tipologia_rete">Network Type</string>
+    <string name="qualita_connessione">Connection quality</string>
+    <string name="unknown">UNKNOWN</string>
+    <string name="banking_app">BANKING APP</string>
 
 
 </resources>

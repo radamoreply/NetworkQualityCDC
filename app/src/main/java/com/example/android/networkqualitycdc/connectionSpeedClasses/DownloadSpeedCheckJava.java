@@ -1,6 +1,5 @@
 package com.example.android.networkqualitycdc.connectionSpeedClasses;
 
-import android.os.AsyncTask;
 import android.util.Log;
 
 import com.example.android.networkqualitycdc.myapplication.ChooseConnectivityCheckActivity;
@@ -18,7 +17,7 @@ import okhttp3.Response;
 
 public class DownloadSpeedCheckJava {
 
-    private MyEventListener callback;
+    private DownloadSpeedCheckEventListener callback;
     private static final String TAG = "DOWNLOAD_SPEED_CHECK";
     long startTime;
     long endTime;
@@ -26,18 +25,25 @@ public class DownloadSpeedCheckJava {
     double speed;
     int kilobytePerSec;
 
-    // bandwidth in kbps
-    private int POOR_BANDWIDTH = 150;
+    // Speed Standards Used
+//    o POOR: larghezza di banda sotto 150 kbps
+//    o MODERATE: larghezza di banda compresa tra 120 e 550 kbps
+//    o GOOD: larghezza di banda compresa tra 550 e 2000 kbps
+//    o EXCELLENT: larghezza di banda sopra i 2000 kbps
+
+    // bandwidth standard limits in kbps
+    private int POOR_BANDWIDTH = 120;
     private int AVERAGE_BANDWIDTH = 550;
     private int GOOD_BANDWIDTH = 2000;
 
-    public void downloadSpeedCheck(MyEventListener cb) {
+
+    public void downloadSpeedCheck(DownloadSpeedCheckEventListener cb) {
         callback = cb;
 
         OkHttpClient client = new OkHttpClient();
 
         Request request = new Request.Builder()
-                .url("https://helpx.adobe.com/content/dam/help/en/stock/how-to/visual-reverse-image-search/jcr_content/main-pars/image/visual-reverse-image-search-v2_intro.jpg")
+                .url("https://i.pinimg.com/originals/c7/93/35/c79335a0f2c30d5da05de7d0dd356092.jpg")
                 .build();
 
         startTime = System.currentTimeMillis();
@@ -69,7 +75,7 @@ public class DownloadSpeedCheckJava {
                     while (input.read(buffer) != -1) {
                         bos.write(buffer);
                     }
-                    byte[] docBuffer = bos.toByteArray();
+//                    byte[] docBuffer = bos.toByteArray();
                     fileSize = bos.size();
 
                 } catch (Exception e) {
@@ -99,19 +105,27 @@ public class DownloadSpeedCheckJava {
                 Log.d(TAG, "Download Speed: " + speed);
                 Log.d(TAG, "File size: " + fileSize);
 
-                callback.onEventCompleted(downloadSpeedValue(kilobytePerSec));
+                callback.onEventCompleted(downloadSpeedValue(kilobytePerSec * 8));
             }
         });
 
 
     }
 
-    private ChooseConnectivityCheckActivity.SPEED downloadSpeedValue(int kilobytePerSec) {
-        if (kilobytePerSec <= POOR_BANDWIDTH) {
+    private ChooseConnectivityCheckActivity.SPEED downloadSpeedValue(int kilobitPerSec) {
+        if (kilobitPerSec == 0) {
+            return ChooseConnectivityCheckActivity.SPEED.NOT_AVAILABLE;
+        }
+        if (kilobitPerSec <= POOR_BANDWIDTH) {
             return ChooseConnectivityCheckActivity.SPEED.POOR;
+        } else if (kilobitPerSec <= AVERAGE_BANDWIDTH) {
+            return ChooseConnectivityCheckActivity.SPEED.MODERATE;
+        } else if (kilobitPerSec <= GOOD_BANDWIDTH) {
+            return ChooseConnectivityCheckActivity.SPEED.GOOD;
         } else {
             return ChooseConnectivityCheckActivity.SPEED.EXCELLENT;
         }
+
     }
 
 

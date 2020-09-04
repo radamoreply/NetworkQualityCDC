@@ -22,12 +22,12 @@ public class FacebookNetworkConnectionClass {
     private static final String TAG = "DOWNLOAD_SPEED_CHECK";
     private int mTries = 0;
 
-    public void facebookNetworkConnection(final ConnectionQuality mConnectionClass , final ConnectionClassManager mConnectionClassManager, final DeviceBandwidthSampler mDeviceBandwidthSampler){
+    public void facebookNetworkConnection(final ConnectionQuality mConnectionClass, final ConnectionClassManager mConnectionClassManager, final DeviceBandwidthSampler mDeviceBandwidthSampler) {
 
-    OkHttpClient client = new OkHttpClient();
-    Request request = new Request.Builder()
-            .url("IMAGE_URL_HERE")
-            .build();
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url("IMAGE_URL_HERE")
+                .build();
 
         mDeviceBandwidthSampler.startSampling();
         client.newCall(request).enqueue(new Callback() {
@@ -41,7 +41,7 @@ public class FacebookNetworkConnectionClass {
                     //TODO-implementare check network quality
 //                    checkNetworkQuality();
                 }
-                    //TODO-qui è possibile inserire una barra di caricamento
+                //TODO-qui è possibile inserire una barra di caricamento
 //                if (!mDeviceBandwidthSampler.isSampling()) {
 //                    mRunningBar.setVisibility(View.GONE);
 //                }
@@ -61,7 +61,7 @@ public class FacebookNetworkConnectionClass {
 
                 mDeviceBandwidthSampler.stopSampling();
             }
-    });
+        });
     }
 
 }

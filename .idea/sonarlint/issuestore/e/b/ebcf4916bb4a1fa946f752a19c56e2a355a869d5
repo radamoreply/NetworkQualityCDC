@@ -1,6 +1,6 @@
 
-msquid:S1450"VRemove the "causale" field and declare it as a local variable in the relevant methods.(Û”ÁÍ
-usquid:S1488'"^Immediately return this expression instead of assigning it to the temporary variable "intent".(®–ƒ¢
-Bsquid:S1068"+Remove this unused "causale" private field.(Û”ÁÍ
 ssquid:S1450"WRemove the "conferma" field and declare it as a local variable in the relevant methods.(áÃ†ßÿÿÿÿÿ
+msquid:S1450"VRemove the "causale" field and declare it as a local variable in the relevant methods.(Û”ÁÍ
+Bsquid:S1068"+Remove this unused "causale" private field.(Û”ÁÍ
+usquid:S1488'"^Immediately return this expression instead of assigning it to the temporary variable "intent".(®–ƒ¢
 gsquid:UselessImportCheck"CRemove this unused import 'androidx.appcompat.app.AppCompatDialog'.(üŸ¨µ
