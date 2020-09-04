@@ -63,7 +63,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void handleIntent() {
-        startActivity(new Intent(this, MainActivity.class));
+
+        startActivity(MainActivity.Companion.createOpenIntent(this, (ChooseConnectivityCheckActivity.SPEED) getIntent().getSerializableExtra(KEY_CONNECTION_SPEED)));
     }
 
     private boolean isFieldsOk() {
