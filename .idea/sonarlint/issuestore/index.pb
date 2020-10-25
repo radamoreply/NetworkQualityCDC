@@ -41,15 +41,11 @@ Yapp/src/main/java/com/example/android/networkqualitycdc/services/BankRepository
 -app/src/main/assets/mockFiles/get-card-2.json,9\0\90c3d182f1f3aeb645051f64087f3d4c2ccf591f
 
 mapp/src/main/java/com/example/android/networkqualitycdc/connectionSpeedClasses/AndroidCheckConnectionSpeed.kt,1\c\1cb2cb85bf2da7660b2201df1af1157dfa891d2a
-n
->app/src/main/res/layout/activity_choose_connectivity_check.xml,8\f\8f97cf3468e31707939ee47aab41b37067a37b24
 S
 #app/src/main/res/values/strings.xml,d\2\d2281fbb3027de2722081a53408dd77628bf080e
 š
 japp/src/main/java/com/example/android/networkqualitycdc/connectionSpeedClasses/DownloadSpeedCheckJava.java,0\b\0b499f9820e4f05eba882ae46b4f7c7062a713ae
 ¢
 rapp/src/main/java/com/example/android/networkqualitycdc/connectionSpeedClasses/FacebookNetworkConnectionClass.java,3\6\36563ca23de980133abf513c06e6d9ba124d96f3
-“
-capp/src/main/java/com/example/android/networkqualitycdc/connectionSpeedClasses/MyEventListener.java,0\f\0f37c5ef4e7ec1e6b73823b7e168f1445c6a44ae
 ˜
 happ/src/main/java/com/example/android/networkqualitycdc/myapplication/ChooseConnectivityCheckActivity.kt,d\0\d05d1344c227b5e684c235e07a1b0a52fbbef674
