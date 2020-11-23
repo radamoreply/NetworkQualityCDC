@@ -154,7 +154,7 @@ class ChooseConnectivityCheckActivity : AppCompatActivity() ,
                 when (connectionQuality) {
                     SPEED.POOR -> {
                         val val1 = mConnectionClassManager.downloadKBitsPerSecond
-                        connection_quality.text = "$connectionQuality" + val1
+                        connection_quality.text = "$connectionQuality"
                         is_connesso.text = "true"
                         /*android.support.design.widget.Snackbar.make(
                             findViewById(R.id.main),
@@ -165,7 +165,7 @@ class ChooseConnectivityCheckActivity : AppCompatActivity() ,
                     }
                     SPEED.MODERATE -> {
                         val val2 = mConnectionClassManager.downloadKBitsPerSecond
-                        connection_quality.text = "$connectionQuality" + val2
+                        connection_quality.text = "$connectionQuality"
                         is_connesso.text = "true"
 //                        android.support.design.widget.Snackbar.make(
 //                            findViewById(R.id.main),
@@ -176,7 +176,7 @@ class ChooseConnectivityCheckActivity : AppCompatActivity() ,
                     }
                     SPEED.GOOD -> {
                         val val3 = mConnectionClassManager.downloadKBitsPerSecond
-                        connection_quality.text = "$connectionQuality" + val3
+                        connection_quality.text = "$connectionQuality"
                         is_connesso.text = "true"
 //                        android.support.design.widget.Snackbar.make(
 //                            findViewById(R.id.main),
@@ -188,7 +188,7 @@ class ChooseConnectivityCheckActivity : AppCompatActivity() ,
 
                     SPEED.EXCELLENT -> {
                         val val4 = mConnectionClassManager.downloadKBitsPerSecond
-                        connection_quality.text = "$connectionQuality" + val4
+                        connection_quality.text = "$connectionQuality"
                         is_connesso.text = "true"
 //                        android.support.design.widget.Snackbar.make(
 //                            findViewById(R.id.main),
