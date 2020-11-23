@@ -1,0 +1,20 @@
+
+8
+java:S3626|"Remove this redundant jump.(Ι©ƒ8Ά“ελά.
+W
+java:S1141X"5Extract this nested try block into a separate method.(΅»Άόωÿÿÿÿ8Ά“ελά.
+L
+java:S1444*"/Make this "public static sInstance" field final(­­®η8Ά“ελά.
+L
+java:S2093K"*Change this "try" to a try-with-resources.(΅»Άόωÿÿÿÿ8Ά“ελά.
+>
+java:S5164"!Call "remove()" on "sLineBuffer".(µ·8Ά“ελά.
+F
+java:S1128")Remove this unused import 'java.io.File'.(†Π¥Ε8Ά“ελά.
+z	java:S135W"YReduce the total number of break and continue statements in this loop to use at most one.(Ύ¨‰Ιψÿÿÿÿ8Ά“ελά.
+8
+java:S3626y"Remove this redundant jump.(Ι©ƒ8Ά“ελά.
+S
+java:S2696„"6Make the enclosing method "static" or remove this set.(ΕΑ#8„’νλά.
+S
+java:S2696"6Make the enclosing method "static" or remove this set.(ΕΑ#8„’νλά.

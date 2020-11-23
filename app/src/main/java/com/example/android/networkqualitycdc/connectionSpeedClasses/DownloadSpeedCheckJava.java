@@ -93,10 +93,6 @@ public class DownloadSpeedCheckJava {
                 double timeTakenSecs = timeTakenMills / 1000;  // divide by 1000 to get time in seconds
                 kilobytePerSec = (int) Math.round(1024 / timeTakenSecs);
 
-                if (kilobytePerSec <= POOR_BANDWIDTH) {
-                    // slow connection
-                }
-
                 // get the download speed by dividing the file size by time taken to download
                 speed = fileSize / timeTakenMills;
 

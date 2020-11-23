@@ -1,8 +1,11 @@
 package com.example.android.networkqualitycdc.myapplication
 
+import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.net.TrafficStats
 import android.os.AsyncTask
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -11,6 +14,7 @@ import android.widget.Toast
 import com.example.android.networkqualitycdc.connectionSpeedClasses.AndroidCheckConnectionSpeed
 import com.example.android.networkqualitycdc.connectionSpeedClasses.DownloadSpeedCheckJava
 import com.example.android.networkqualitycdc.connectionSpeedClasses.DownloadSpeedCheckEventListener
+import com.example.android.networkqualitycdc.customsampler.DeviceBandwidthSamplerCustom
 import com.facebook.network.connectionclass.ConnectionClassManager
 import com.facebook.network.connectionclass.ConnectionQuality
 import com.facebook.network.connectionclass.DeviceBandwidthSampler
@@ -33,6 +37,7 @@ class ChooseConnectivityCheckActivity : AppCompatActivity() ,
     var connectionQuality : SPEED = SPEED.NOT_AVAILABLE
     private var mConnectionClass : ConnectionQuality = ConnectionQuality.UNKNOWN
     private lateinit var mConnectionClassManager: ConnectionClassManager
+    private lateinit var mDeviceBandwidthSamplerCustom : DeviceBandwidthSamplerCustom
     private lateinit var mDeviceBandwidthSampler : DeviceBandwidthSampler
     private lateinit var mListener : ConnectionChangedListener
     private var mTries = 0
@@ -42,9 +47,16 @@ class ChooseConnectivityCheckActivity : AppCompatActivity() ,
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_choose_connectivity_check)
 
+
         mConnectionClassManager = ConnectionClassManager.getInstance()
-        mDeviceBandwidthSampler = DeviceBandwidthSampler.getInstance()
-        mListener = ConnectionChangedListener()
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            mDeviceBandwidthSamplerCustom = DeviceBandwidthSamplerCustom.getInstance()
+        } else {
+            mDeviceBandwidthSampler = DeviceBandwidthSampler.getInstance()
+
+        }
+
+            mListener = ConnectionChangedListener()
 
         android_check_connection.setOnClickListener {
             checkAndroidConnection()
@@ -110,12 +122,11 @@ class ChooseConnectivityCheckActivity : AppCompatActivity() ,
     fun checkFacebookNetworkConnectivity() {
         mTries = 0
         var speed = mConnectionClassManager.getCurrentBandwidthQuality()
-        is_connesso.text = speed.toString()
+        is_connesso.text = (!speed.equals(ConnectionQuality.UNKNOWN)).toString()
         connection_type.text = "UNKNOWN"
         connection_quality.text = speed.toString()
-        connectionQuality = SPEED.NOT_AVAILABLE
+        connectionQuality = convertFromConnectionClassToSpeed(speed)
         DnloadImage().execute("")
-
 
     }
 
@@ -143,7 +154,8 @@ class ChooseConnectivityCheckActivity : AppCompatActivity() ,
                 when (connectionQuality) {
                     SPEED.POOR -> {
                         val val1 = mConnectionClassManager.downloadKBitsPerSecond
-                        connection_quality.text = "Quality is $connectionQuality $val1 and Bandwidth under 150 kbps so poor quality Image downloaded"
+                        connection_quality.text = "$connectionQuality" + val1
+                        is_connesso.text = "true"
                         /*android.support.design.widget.Snackbar.make(
                             findViewById(R.id.main),
                             "Quality is $connectionQuality$val1\n and Bandwidth under 150 kbps so poor\n quality image is downloading",
@@ -153,7 +165,8 @@ class ChooseConnectivityCheckActivity : AppCompatActivity() ,
                     }
                     SPEED.MODERATE -> {
                         val val2 = mConnectionClassManager.downloadKBitsPerSecond
-                        connection_quality.text = "Quality is $connectionQuality $val2 and Bandwidth between 150 to 550 kbps so moderate quality Image downloaded"
+                        connection_quality.text = "$connectionQuality" + val2
+                        is_connesso.text = "true"
 //                        android.support.design.widget.Snackbar.make(
 //                            findViewById(R.id.main),
 //                            "Quality is $connectionQuality$val2\n and Bandwidth between 150 to 550 kbps so moderate\n quality Image is downloading",
@@ -163,7 +176,8 @@ class ChooseConnectivityCheckActivity : AppCompatActivity() ,
                     }
                     SPEED.GOOD -> {
                         val val3 = mConnectionClassManager.downloadKBitsPerSecond
-                        connection_quality.text = "Quality is $connectionQuality $val3 and Bandwidth between 550 to 2000 kbps so good quality Image downloaded"
+                        connection_quality.text = "$connectionQuality" + val3
+                        is_connesso.text = "true"
 //                        android.support.design.widget.Snackbar.make(
 //                            findViewById(R.id.main),
 //                            "Quality is $connectionQuality$val3\n and Bandwidth between 550 to 2000 kbps so good\n quality Image is downloading",
@@ -174,7 +188,8 @@ class ChooseConnectivityCheckActivity : AppCompatActivity() ,
 
                     SPEED.EXCELLENT -> {
                         val val4 = mConnectionClassManager.downloadKBitsPerSecond
-                        connection_quality.text = "Quality is $connectionQuality $val4 and Bandwidth over 2000 kbps so excellent quality Image downloaded"
+                        connection_quality.text = "$connectionQuality" + val4
+                        is_connesso.text = "true"
 //                        android.support.design.widget.Snackbar.make(
 //                            findViewById(R.id.main),
 //                            "Quality is $connectionQuality$val4\n and Bandwidth over 2000 kbps so high\n quality Image is downlaoding",
@@ -183,7 +198,7 @@ class ChooseConnectivityCheckActivity : AppCompatActivity() ,
 //                        DnloadImage().execute("http://static.giantbomb.com/uploads/original/15/157771/2312721-a7.png") // 2.49 mb
                     }
 
-                    SPEED.NOT_AVAILABLE -> connection_quality.text = "Sorry we are getting nothing"
+                    SPEED.NOT_AVAILABLE -> connection_quality.text = "UNKNOWN"
                 }
             }
         }
@@ -202,7 +217,11 @@ class ChooseConnectivityCheckActivity : AppCompatActivity() ,
     private inner class DnloadImage : AsyncTask<String, Void, Bitmap>() {
 
         override fun onPreExecute() {
-            mDeviceBandwidthSampler.startSampling()
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                mDeviceBandwidthSamplerCustom.startSampling()
+            } else {
+                mDeviceBandwidthSampler.startSampling()
+            }
             //mRunningBar.setVisibility(View.VISIBLE)
         }
 
@@ -210,24 +229,6 @@ class ChooseConnectivityCheckActivity : AppCompatActivity() ,
 
             val imageURL = "https://i.pinimg.com/originals/c7/93/35/c79335a0f2c30d5da05de7d0dd356092.jpg"
 //            val imageURL = "https://effigis.com/wp-content/uploads/2015/02/DigitalGlobe_WorldView2_50cm_8bit_Pansharpened_RGB_DRA_Rome_Italy_2009DEC10_8bits_sub_r_1.jpg" // Very large image
-
-            /*try {
-                val byteArrayInputStream: ByteArrayInputStream
-                // Bitmap bitmap;
-                val connection = URL(imageURL).openConnection()
-                connection.useCaches = false
-                connection.connect()
-                val input = connection.getInputStream()
-
-                try {
-                    return BitmapFactory.decodeStream(input)
-                } finally {
-                    input.close()
-                }
-            }
-            catch (e: IOException) {
-                Log.e(TAG, "Error while downloading image.")
-            }*/
 
             try {
                 var url = URL(imageURL)
@@ -246,18 +247,33 @@ class ChooseConnectivityCheckActivity : AppCompatActivity() ,
 
 
         override fun onPostExecute(bp: Bitmap) {
-            mDeviceBandwidthSampler.stopSampling()
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                mDeviceBandwidthSamplerCustom.stopSampling()
+            } else {
+                mDeviceBandwidthSampler.stopSampling()
+            }
+
             Toast.makeText(this@ChooseConnectivityCheckActivity, "" + mTries, Toast.LENGTH_SHORT).show()
 
             if (mConnectionClass == ConnectionQuality.UNKNOWN && mTries < 10) {
                 mTries++
                 DnloadImage().execute("")
             }
-            if (!mDeviceBandwidthSampler.isSampling) {
-                //mImageView.setImageBitmap(bp)
-                //imageLoader.getInstance().displayImage(mURL,mImageView);
-                //mRunningBar.setVisibility(View.GONE)
 
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                if (!mDeviceBandwidthSamplerCustom.isSampling) {
+                    //mImageView.setImageBitmap(bp)
+                    //imageLoader.getInstance().displayImage(mURL,mImageView);
+                    //mRunningBar.setVisibility(View.GONE)
+
+                }
+            } else {
+                if (!mDeviceBandwidthSampler.isSampling) {
+                    //mImageView.setImageBitmap(bp)
+                    //imageLoader.getInstance().displayImage(mURL,mImageView);
+                    //mRunningBar.setVisibility(View.GONE)
+
+                }
             }
         }
     }

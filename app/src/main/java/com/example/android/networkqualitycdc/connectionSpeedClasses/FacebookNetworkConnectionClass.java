@@ -3,9 +3,9 @@ package com.example.android.networkqualitycdc.connectionSpeedClasses;
 import android.util.Log;
 import android.view.View;
 
+import com.example.android.networkqualitycdc.customsampler.DeviceBandwidthSamplerCustom;
 import com.facebook.network.connectionclass.ConnectionClassManager;
 import com.facebook.network.connectionclass.ConnectionQuality;
-import com.facebook.network.connectionclass.DeviceBandwidthSampler;
 
 import java.io.IOException;
 
@@ -22,7 +22,7 @@ public class FacebookNetworkConnectionClass {
     private static final String TAG = "DOWNLOAD_SPEED_CHECK";
     private int mTries = 0;
 
-    public void facebookNetworkConnection(final ConnectionQuality mConnectionClass, final ConnectionClassManager mConnectionClassManager, final DeviceBandwidthSampler mDeviceBandwidthSampler) {
+    public void facebookNetworkConnection(final ConnectionQuality mConnectionClass, final ConnectionClassManager mConnectionClassManager, final DeviceBandwidthSamplerCustom mDeviceBandwidthSampler) {
 
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
