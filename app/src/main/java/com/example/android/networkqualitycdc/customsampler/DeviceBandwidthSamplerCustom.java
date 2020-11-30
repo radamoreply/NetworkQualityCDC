@@ -43,7 +43,7 @@ public class DeviceBandwidthSamplerCustom {
 
     private AtomicInteger mSamplingCounter;
     private long byteDiff = 0;
-    private long pastTotalRxBytes = 0;
+    private long pastTotalRxBytes = -1;
     private int uid;
     private Handler mHandler;
     private HandlerThread mThread;
@@ -82,7 +82,7 @@ public class DeviceBandwidthSamplerCustom {
             mHandler.sendEmptyMessage(DeviceBandwidthSamplerCustom.SamplingHandler.MSG_START);
             mLastTimeReading = SystemClock.elapsedRealtime();
             uid = android.os.Process.myUid();
-            pastTotalRxBytes = TrafficStats.getUidRxBytes(uid);
+            //pastTotalRxBytes = TrafficStats.getUidRxBytes(uid);
         }
     }
 
@@ -126,7 +126,13 @@ public class DeviceBandwidthSamplerCustom {
          */
         private void addSample() {
             //byteDiff = TrafficStats.getTotalRxBytes() - byteDiff;
-            byteDiff = TrafficStats.getUidRxBytes(uid) - pastTotalRxBytes;
+            if(pastTotalRxBytes == -1){
+                byteDiff = -1;
+                pastTotalRxBytes = TrafficStats.getUidRxBytes(uid);
+            } else {
+                byteDiff = TrafficStats.getUidRxBytes(uid) - pastTotalRxBytes;
+                pastTotalRxBytes = TrafficStats.getUidRxBytes(uid);
+            }
             synchronized (this) {
                 long curTimeReading = SystemClock.elapsedRealtime();
                 if (byteDiff != -1) {

@@ -1,15 +1,15 @@
 
 ˆ
-java:S1130F"kRemove the declaration of thrown exception 'java.util.NoSuchElementException' which is a runtime exception.(¬°ß¶8Â™–ŞÜ.
-
-java:S1130‰"jRemove the declaration of thrown exception 'java.lang.NumberFormatException' which is a runtime exception.(İë¯ûÿÿÿÿ8Â™–ŞÜ.
-ˆ
-java:S1130r"kRemove the declaration of thrown exception 'java.util.NoSuchElementException' which is a runtime exception.(¬°ß¶8Â™–ŞÜ.
+java:S11307"kRemove the declaration of thrown exception 'java.util.NoSuchElementException' which is a runtime exception.(¬°ß¶8Â™–ŞÜ.
 
 java:S1488_"]Immediately return this expression instead of assigning it to the temporary variable "value".(«­ó«ıÿÿÿÿ8Â™–ŞÜ.
 ˆ
-java:S1130Z"kRemove the declaration of thrown exception 'java.util.NoSuchElementException' which is a runtime exception.(¬°ß¶8Â™–ŞÜ.
-ˆ
-java:S11307"kRemove the declaration of thrown exception 'java.util.NoSuchElementException' which is a runtime exception.(¬°ß¶8Â™–ŞÜ.
-ˆ
 java:S1130k"kRemove the declaration of thrown exception 'java.util.NoSuchElementException' which is a runtime exception.(¬°ß¶8Â™–ŞÜ.
+ˆ
+java:S1130r"kRemove the declaration of thrown exception 'java.util.NoSuchElementException' which is a runtime exception.(¬°ß¶8Â™–ŞÜ.
+
+java:S1130‰"jRemove the declaration of thrown exception 'java.lang.NumberFormatException' which is a runtime exception.(İë¯ûÿÿÿÿ8Â™–ŞÜ.
+ˆ
+java:S1130F"kRemove the declaration of thrown exception 'java.util.NoSuchElementException' which is a runtime exception.(¬°ß¶8Â™–ŞÜ.
+ˆ
+java:S1130Z"kRemove the declaration of thrown exception 'java.util.NoSuchElementException' which is a runtime exception.(¬°ß¶8Â™–ŞÜ.

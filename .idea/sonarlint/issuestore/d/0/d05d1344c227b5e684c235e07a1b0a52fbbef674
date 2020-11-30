@@ -1,4 +1,7 @@
 
->kotlin:S125"Remove this commented out code.(‚öÇê8şÇ ìÜ.
->kotlin:S125æ"Remove this commented out code.(½‘Ñ³8˜É‚ıÕ.
->kotlin:S125—"Remove this commented out code.(‚öÇê8ä¤¸ûÕ.
+Ikotlin:S1481¦")Remove this unused "val2" local variable.(é¢Ì 8©­·Àá.
+>kotlin:S125û"Remove this commented out code.(‚öÇê8şÇ ìÜ.
+Nkotlin:S1481¡")Remove this unused "val1" local variable.(ğ Ü¡úÿÿÿÿ8©­·Àá.
+>kotlin:S125ô"Remove this commented out code.(‚öÇê8ä¤¸ûÕ.
+Ikotlin:S1481«")Remove this unused "val3" local variable.(€Êè…8©­·Àá.
+Ikotlin:S1481±")Remove this unused "val4" local variable.(§€âö8©­·Àá.

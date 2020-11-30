@@ -6,7 +6,7 @@ A
 X
 (gradle/wrapper/gradle-wrapper.properties,f\b\fbe448ebfc3eb2d4e308f6b8b043666f5b57235e
 ?
-settings.gradle,0\5\05efc8b1657769a27696d478ded1e95f38737233
+settings.gradle,0/5/05efc8b1657769a27696d478ded1e95f38737233
 @
 local.properties,0\7\0712df971a99ac4d2fccb8e0fb19f377f3374cca
 ‹
@@ -28,7 +28,7 @@ Xapp/src/main/java/com/example/android/networkqualitycdc/myapplication/LoginActi
 ~
 Napp/src/main/java/com/example/android/networkqualitycdc/utils/ServiceUtil.java,f/7/f7a29ddfc7a026ebb146b462cf55db51fe7cc73b
 @
-app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
+app/build.gradle,f/4/f4a01d6a4fcb971362ec00a83903fd3902f52164
 P
  app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
 …
@@ -59,3 +59,19 @@ aapp/src/main/java/com/example/android/networkqualitycdc/customsampler/ByteArray
 [app/src/main/java/com/example/android/networkqualitycdc/customsampler/QTagParserCustom.java,1/a/1a6157df05c3b54128240bf12adb1644f008cae6
 —
 gapp/src/main/java/com/example/android/networkqualitycdc/customsampler/DeviceBandwidthSamplerCustom.java,5/0/50ffe4d9f3d5a1f4291aa770b5af1ccc1f0ba6a9
+£
+sapp/src/main/java/com/example/android/networkqualitycdc/connectionSpeedClasses/DownloadSpeedCheckEventListener.java,9/6/96927ff90e1cc5f8f53263920092e513e246f791
+™
+iconnectionspeedlibrary/src/androidTest/java/com/example/connectionspeedlibrary/ExampleInstrumentedTest.kt,4/4/4494ac95b86dc133c1e53d835f0a4642f1157d09
+f
+6connectionspeedlibrary/src/main/res/values/strings.xml,8/3/831477a8776f8be4d5bf99085a61d7a9adaeaaa7
+c
+3connectionspeedlibrary/src/main/AndroidManifest.xml,6/6/66c4c9d94f5eee2aeab3a8d34e9d3cbc0ebef74a
+Š
+Zconnectionspeedlibrary/src/test/java/com/example/connectionspeedlibrary/ExampleUnitTest.kt,a/4/a47c19b7a065b26bb4632469b0c8f4382d2a97dc
+Q
+!connectionspeedlibrary/.gitignore,b/2/b2245833bf6f3f684572685505b91a5efcd06315
+Y
+)connectionspeedlibrary/consumer-rules.pro,6/e/6eed6935ee86df3c2e68ea0c7ff876d230b2fba7
+Y
+)connectionspeedlibrary/proguard-rules.pro,9/3/934a247e35d7641717400eb8c7d7c0ed744aee3f

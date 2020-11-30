@@ -1,5 +1,15 @@
 
-Q
-java:S1128"/Remove this unused import 'android.os.Process'.(’ºüíşÿÿÿÿ8ÀÍ”ìÜ.
+s
+java:S1128"QRemove this unnecessary import: java.lang classes are always implicitly imported.(ŒŒêøÿÿÿÿ8Š¢Ï¤ß.
+M
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8ƒåô£ß.
 X
-java:S1128"6Remove this unused import 'javax.annotation.Nullable'.(—å¨Íûÿÿÿÿ8ÚÓ­µÜ.
+java:S1128"6Remove this unused import 'javax.annotation.Nullable'.(—å¨Íûÿÿÿÿ8ÚÓ­µÜ.
+a
+java:S1128"?Remove this unused import 'android.content.pm.ApplicationInfo'.(‰­üÿÿÿÿ8ƒåô£ß.
+]	java:S125U"<This block of commented-out lines of code should be removed.(Š©¡ùÿÿÿÿ8ğİ‘á.
+`
+java:S1128">Remove this unused import 'android.content.pm.PackageManager'.(€®¥õÿÿÿÿÿ8Ö¶Ø£ß.
+Y	java:S125€"<This block of commented-out lines of code should be removed.(ÂçÍ8áàÒ¤ß.
+O
+java:S1128"-Remove this unused import 'android.util.Log'.(Ô¦Ø²øÿÿÿÿ8ƒåô£ß.

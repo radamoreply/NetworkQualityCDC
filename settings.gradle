@@ -1,2 +1,2 @@
-include ':app', ':connectionspeedlibrary'
+include ':app', ':connectionspeedlibrary', ':connectionspeedlibrary', ':networkspeedlibrary'
 rootProject.name='NetworkQualityCDC'

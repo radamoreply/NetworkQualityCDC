@@ -150,56 +150,36 @@ class ChooseConnectivityCheckActivity : AppCompatActivity() ,
         override fun onBandwidthStateChange(bandwidthState: ConnectionQuality) {
             mConnectionClass = bandwidthState
             runOnUiThread {
-                connectionQuality = convertFromConnectionClassToSpeed(mConnectionClass)
-                when (connectionQuality) {
-                    SPEED.POOR -> {
-                        val val1 = mConnectionClassManager.downloadKBitsPerSecond
-                        connection_quality.text = "$connectionQuality"
-                        is_connesso.text = "true"
-                        /*android.support.design.widget.Snackbar.make(
-                            findViewById(R.id.main),
-                            "Quality is $connectionQuality$val1\n and Bandwidth under 150 kbps so poor\n quality image is downloading",
-                            android.support.design.widget.Snackbar.LENGTH_LONG
-                        ).show()
-                        DnloadImage().execute("http://storage.googleapis.com/ix_choosemuse/uploads/2016/02/android-logo.png") // 80 kb*/
-                    }
-                    SPEED.MODERATE -> {
-                        val val2 = mConnectionClassManager.downloadKBitsPerSecond
-                        connection_quality.text = "$connectionQuality"
-                        is_connesso.text = "true"
-//                        android.support.design.widget.Snackbar.make(
-//                            findViewById(R.id.main),
-//                            "Quality is $connectionQuality$val2\n and Bandwidth between 150 to 550 kbps so moderate\n quality Image is downloading",
-//                            android.support.design.widget.Snackbar.LENGTH_LONG
-//                        ).show()
-//                        DnloadImage().execute("http://static.giantbomb.com/uploads/original/15/157771/2312725-a10.jpeg") // 454 kb
-                    }
-                    SPEED.GOOD -> {
-                        val val3 = mConnectionClassManager.downloadKBitsPerSecond
-                        connection_quality.text = "$connectionQuality"
-                        is_connesso.text = "true"
-//                        android.support.design.widget.Snackbar.make(
-//                            findViewById(R.id.main),
-//                            "Quality is $connectionQuality$val3\n and Bandwidth between 550 to 2000 kbps so good\n quality Image is downloading",
-//                            android.support.design.widget.Snackbar.LENGTH_LONG
-//                        ).show()
-//                        DnloadImage().execute("http://techclones.com/wp-content/uploads/2013/09/Best-Dark-HD-Wallpaper-Android1.png") // 1.04 mb
-                    }
+                speedCheck(mConnectionClass, mConnectionClassManager)
+            }
+        }
 
-                    SPEED.EXCELLENT -> {
-                        val val4 = mConnectionClassManager.downloadKBitsPerSecond
-                        connection_quality.text = "$connectionQuality"
-                        is_connesso.text = "true"
-//                        android.support.design.widget.Snackbar.make(
-//                            findViewById(R.id.main),
-//                            "Quality is $connectionQuality$val4\n and Bandwidth over 2000 kbps so high\n quality Image is downlaoding",
-//                            android.support.design.widget.Snackbar.LENGTH_LONG
-//                        ).show()
-//                        DnloadImage().execute("http://static.giantbomb.com/uploads/original/15/157771/2312721-a7.png") // 2.49 mb
-                    }
-
-                    SPEED.NOT_AVAILABLE -> connection_quality.text = "UNKNOWN"
+        private fun speedCheck(mConnectionClass : ConnectionQuality, mConnectionClassManager: ConnectionClassManager) {
+            connectionQuality = convertFromConnectionClassToSpeed(mConnectionClass)
+            when (connectionQuality) {
+                SPEED.POOR -> {
+                    val val1 = mConnectionClassManager.downloadKBitsPerSecond
+                    connection_quality.text = "$connectionQuality"
+                    is_connesso.text = "true"
                 }
+                SPEED.MODERATE -> {
+                    val val2 = mConnectionClassManager.downloadKBitsPerSecond
+                    connection_quality.text = "$connectionQuality"
+                    is_connesso.text = "true"
+                }
+                SPEED.GOOD -> {
+                    val val3 = mConnectionClassManager.downloadKBitsPerSecond
+                    connection_quality.text = "$connectionQuality"
+                    is_connesso.text = "true"
+                }
+
+                SPEED.EXCELLENT -> {
+                    val val4 = mConnectionClassManager.downloadKBitsPerSecond
+                    connection_quality.text = "$connectionQuality"
+                    is_connesso.text = "true"
+                }
+
+                SPEED.NOT_AVAILABLE -> connection_quality.text = "UNKNOWN"
             }
         }
     }
@@ -228,7 +208,6 @@ class ChooseConnectivityCheckActivity : AppCompatActivity() ,
         override fun doInBackground(vararg url: String): Bitmap? {
 
             val imageURL = "https://i.pinimg.com/originals/c7/93/35/c79335a0f2c30d5da05de7d0dd356092.jpg"
-//            val imageURL = "https://effigis.com/wp-content/uploads/2015/02/DigitalGlobe_WorldView2_50cm_8bit_Pansharpened_RGB_DRA_Rome_Italy_2009DEC10_8bits_sub_r_1.jpg" // Very large image
 
             try {
                 var url = URL(imageURL)

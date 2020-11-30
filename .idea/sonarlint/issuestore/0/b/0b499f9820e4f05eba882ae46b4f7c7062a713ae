@@ -1,12 +1,12 @@
 
-g
-java:S2184\"ECast one of the operands of this subtraction operation to a "double".(ˆã¥€úÿÿÿÿ8ÏØ¡ÏÕ.
-L
-java:S2093G"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ8ÏØ¡ÏÕ.
-X	java:S125N"<This block of commented-out lines of code should be removed.(µæşç8ÏØ¡ÏÕ.
 H
 java:S2185\"&Remove this silly call to "Math.floor"(ˆã¥€úÿÿÿÿ8ÏØ¡ÏÕ.
+z	java:S116%"YRename this field "GOOD_BANDWIDTH" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÒŞ™Ôúÿÿÿÿ8ÏØ¡ÏÕ.
+L
+java:S2093G"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ8ÏØ¡ÏÕ.
+g
+java:S2184\"ECast one of the operands of this subtraction operation to a "double".(ˆã¥€úÿÿÿÿ8ÏØ¡ÏÕ.
+X	java:S125N"<This block of commented-out lines of code should be removed.(µæşç8ÏØ¡ÏÕ.
+}	java:S116$"\Rename this field "AVERAGE_BANDWIDTH" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ï‡Ò°øÿÿÿÿ8ÏØ¡ÏÕ.
 {	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Œÿ›øÿÿÿÿ8ÏØ¡ÏÕ.
 z	java:S116#"YRename this field "POOR_BANDWIDTH" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”îÿŞúÿÿÿÿ8ÏØ¡ÏÕ.
-}	java:S116$"\Rename this field "AVERAGE_BANDWIDTH" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ï‡Ò°øÿÿÿÿ8ÏØ¡ÏÕ.
-z	java:S116%"YRename this field "GOOD_BANDWIDTH" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÒŞ™Ôúÿÿÿÿ8ÏØ¡ÏÕ.
